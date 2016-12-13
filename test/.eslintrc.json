@@ -1,0 +1,3 @@
+{
+    "extends": "@topbox-rci/eslint-config/configs/react.js"
+}
