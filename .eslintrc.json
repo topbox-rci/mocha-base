@@ -2,6 +2,7 @@
     "extends": "@topbox-rci/eslint-config/configs/es6.js",
     "globals": {
         "after": true,
+        "afterEach": true,
         "beforeEach": true,
         "describe": true,
         "it": true
