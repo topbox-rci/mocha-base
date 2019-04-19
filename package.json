@@ -10,7 +10,12 @@
         "helpers"
     ],
     "scripts": {
-        "test": "grunt test"
+        "test": "npm run lint && npm run unit",
+        "lint": "eslint 'helpers/**/*.js' 'test/**/*.js'",
+        "unit": "nyc --reporter=text-summary --reporter=lcov --reporter=cobertura mocha --exit \"test/**/*.spec.js\""
+    },
+    "nyc": {
+        "temp-directory": "./coverage/.nyc_output"
     },
     "devDependencies": {
         "@topbox-rci/eslint-config": "https://github.com/topbox-rci/eslint-config.git#v1.0.0",
@@ -19,19 +24,16 @@
         "babel-preset-react": "6.16.0",
         "babel-preset-stage-0": "6.16.0",
         "coveralls": "2.11.15",
-        "grunt": "1.0.1",
-        "grunt-eslint": "19.0.0",
-        "grunt-mocha-istanbul": "5.0.2",
-        "load-grunt-config": "0.19.2"
+        "eslint": "3.19.0"
     },
     "dependencies": {
-        "chai": "3.5.0",
-        "chance": "1.0.10",
+        "chai": "^4.2.0",
+        "chance": "^1.0.18",
         "enzyme": "^3.9.0",
-        "enzyme-adapter-react-16": "^1.10.0",
-        "istanbul": "1.1.0-alpha.1",
+        "enzyme-adapter-react-16": "^1.12.1",
         "jsdom": "9.8.3",
-        "mocha": "3.2.0",
+        "mocha": "^5.2.0",
+        "nyc": "^14.0.0",
         "prop-types": "^15.7.2",
         "react": "^16.4.2",
         "react-dom": "^16.4.2",
