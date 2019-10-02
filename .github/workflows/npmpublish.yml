@@ -1,0 +1,47 @@
+name: Build and Package
+
+on:
+  pull_request:
+    branches:
+      - master
+      - develop
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+          registry-url: https://npm.pkg.github.com/
+          scope: '@topbox-rci'
+      - run: npm ci
+      - run: npm test
+
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+          registry-url: https://npm.pkg.github.com/
+          scope: '@topbox-rci'
+      - name: Tag new version if merged into master
+        if: github.ref == 'refs/heads/master'
+        run: |
+          VERSION_TAG=v$(jq -r .version package.json)
+          git tag $VERSION_TAG
+          HEADER=$(echo -n "ad-m:${{secrets.GITHUB_TOKEN}}" | base64)
+          git -c http.extraheader="AUTHORIZATION: basic $HEADER" push origin $VERSION_TAG
+      - name: Publish master
+        run: npm publish
+        if: github.ref == 'refs/heads/master'
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
