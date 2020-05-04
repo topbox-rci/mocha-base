@@ -26,7 +26,8 @@
         "@topbox-rci/eslint-config": "https://github.com/topbox-rci/eslint-config.git#v1.0.0",
         "babel-plugin-istanbul": "^6.0.0",
         "coveralls": "^3.0.4",
-        "eslint": "3.19.0"
+        "eslint": "3.19.0",
+        "esm": "^3.2.25"
     },
     "dependencies": {
         "chai": "^4.2.0",

@@ -1,2 +1,2 @@
 -r ./test/mocha-setup.js
---require @babel/register
+--require esm
