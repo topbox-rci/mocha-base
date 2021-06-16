@@ -8,4 +8,3 @@ const SomeComponent = () => (
 );
 
 export default SomeComponent;
-
