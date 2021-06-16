@@ -1,6 +1,6 @@
 {
     "name": "@topbox-rci/mocha-base",
-    "version": "4.0.0",
+    "version": "5.0.0",
     "description": "Shared mocha stuff.",
     "repository": {
         "type": "git",
