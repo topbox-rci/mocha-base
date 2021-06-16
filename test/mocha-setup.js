@@ -1,6 +1,6 @@
 import { jsdom } from 'jsdom';
 import { configure } from 'enzyme';
-import Adapter from 'enzyme-adapter-react-16';
+import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import styles from './fakes/styles';
 
 configure({ adapter: new Adapter() });
