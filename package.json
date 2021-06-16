@@ -1,6 +1,6 @@
 {
     "name": "@topbox-rci/mocha-base",
-    "version": "4.0.0",
+    "version": "5.0.0",
     "description": "Shared mocha stuff.",
     "repository": {
         "type": "git",
@@ -23,23 +23,24 @@
         "@babel/preset-react": "^7.9.4",
         "@babel/register": "^7.9.0",
         "@istanbuljs/nyc-config-babel": "^3.0.0",
-        "@topbox-rci/eslint-config": "https://github.com/topbox-rci/eslint-config.git#v1.0.0",
+        "@topbox-rci/eslint-config": "1.2.3",
         "babel-plugin-istanbul": "^6.0.0",
         "coveralls": "^3.0.4",
-        "eslint": "3.19.0",
+        "eslint": "^6.5.1",
         "esm": "^3.2.25"
     },
     "dependencies": {
+        "@wojtekmaj/enzyme-adapter-react-17": "^0.6.2",
+        "babel-eslint": "^10.0.3",
         "chai": "^4.2.0",
         "chance": "^1.0.18",
         "enzyme": "^3.9.0",
-        "enzyme-adapter-react-16": "^1.12.1",
         "jsdom": "9.8.3",
         "mocha": "^7.1.2",
         "nyc": "^15.0.1",
         "prop-types": "^15.7.2",
-        "react": "^16.4.2",
-        "react-dom": "^16.4.2",
+        "react": "^17.0.2",
+        "react-dom": "^17.0.2",
         "sinon": "3.2.0"
     }
 }

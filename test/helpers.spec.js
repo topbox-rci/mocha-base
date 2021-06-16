@@ -1,4 +1,4 @@
-const assert = require('../helpers/assert.helper.js');
+const assert = require('../helpers/assert.helper');
 const pathingHelper = require('../helpers/pathing.helper');
 
 describe('helpers', () => {
