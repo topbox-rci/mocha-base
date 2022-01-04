@@ -1,4 +1,4 @@
-import { jsdom } from 'jsdom';
+import { JSDOM } from 'jsdom';
 import { configure } from 'enzyme';
 import Adapter from '@wojtekmaj/enzyme-adapter-react-17';
 import styles from './fakes/styles';
@@ -6,12 +6,14 @@ import styles from './fakes/styles';
 configure({ adapter: new Adapter() });
 
 // JSDOM
-const doc = jsdom('<!doctype html><html><body></body></html>');
-const win = doc.defaultView;
+const dom = new JSDOM('<!doctype html><html><body></body></html>', {
+    url: 'https://localhost:8080'
+});
 
-global.document = doc;
-global.window = win;
+global.document = dom.window.document;
+global.window = dom.window;
 
+const win = dom.window;
 Object.keys(win).forEach((k) => {
     if (!{}.hasOwnProperty.call(win, k)) return;
     if (k in global) return;
